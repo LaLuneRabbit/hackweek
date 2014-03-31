@@ -2,8 +2,8 @@
 <html manifest="cache.manifest">
 	<head>
 		<!-- Card info -->
-		<title>Starter Kit</title>
-		<meta name="description" content="My amazing card!">
+		<title>Zodiac</title>
+		<meta name="description" content="My hackweek card!">
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<meta name="kik-prefer" content="true">
 		<link rel="kik-icon" href="/img/icon.png">
@@ -15,33 +15,188 @@
 
 	<body>
 		<!-- Pages -->
+		
+		<!-- introPages -->
+		<div class="app-page" data-page="intro">
+			<div class="app-content" data-no-scroll="true">
+				<!-- <canvas id="introCanvas">Y
+					our browser does not support the HTML5 canvas tag.
+				</canvas> -->
+				<div class="app-section intro-home">
+					<div class="app-button" data-target="home">Enter</div>
+				</div>
+			</div>
+		</div> 
 
+		<!-- homePages -->
 		<div class="app-page" data-page="home">
 			<div class="app-topbar">
-				<div class="app-title">Home page</div>
+				<div class="app-title">Zodiac</div>
+			</div> 
+			<div class="app-content" data-no-scroll="true">
+				<!-- <canvas id="homeCanvas">Y
+					our browser does not support the HTML5 canvas tag.
+				</canvas> -->
+
+				<div class="app-section">
+					<div class="app-button" data-target="page2">New Game</div>
+				</div>
+				<div class="app-section">
+					<div class="app-button" data-target="page3">Game in Progress</div>
+				</div>
+				<div class="app-section">
+					<div class="app-button" data-target="page4">Field Interference</div>
+				</div>
+				<div class="app-section">
+					<div class="app-button" data-target="page5">Profile</div>
+				</div>
+
+				<div class="app-section">
+					<div class="app-button" data-target="intro">To Be Removed</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- newGamePages -->
+		<div class="app-page" data-page="page2">
+			<div class="app-topbar">
+				<div class="app-button left" data-back="true">Back</div>
+				<div class="app-title">New Game</div>
 			</div>
 			<div class="app-content">
 				<div class="app-section">
-					<div class="app-button" data-target="page2">Go to Page 2</div>
+					<!-- kik.pickUsers goes here? -->
+					<div class="app-button" data-target="page2_1">Select an User</div>
+				</div>
+				<!-- grab a list of user with challengeAllowed = true -->
+				<ul class="app-list">
+					<li class="app-button">tempUser1</li>
+					<li class="app-button">tempUser2</li>
+					<li class="app-button">tempUser3</li>
+				</ul>
+			</div>
+
+		</div>
+
+		<!-- gamePages -->
+		<div class="app-page" data-page="page2_1">
+			<div class="app-topbar">
+				<div class="app-button left" data-back="true">Back</div>
+				<div class="app-title">Game</div>
+			</div>
+			<div class="app-content">
+				<ul class="app-list">
+					<label>Trying it out</label>
+  					<li class="app-button">Button item</li>
+				</ul>
+
+
+
+			</div>
+		</div>
+
+		<!-- progressPages -->
+		<div class="app-page" data-page="page3">
+			<div class="app-topbar">
+				<div class="app-button left" data-back="true">Back</div>
+				<div class="app-title">Game in Progress</div>
+			</div>
+			<div class="app-content" data-no-scroll="true">
+				page 3 is just for show
+			</div>
+		</div>
+
+		<!-- interferencePages -->
+		<div class="app-page" data-page="page4">
+			<div class="app-topbar">
+				<div class="app-button left" data-back="true">Back</div>
+				<div class="app-title">Field Interference</div>
+			</div>
+			<div class="app-content">
+				page 4 is just for show
+			</div>
+		</div>
+
+		<!-- profilePages -->
+		<div class="app-page" data-page="page5">
+			<div class="app-topbar">
+				<div class="app-button left" data-back="true">Back</div>
+				<div class="app-title">Profile</div>
+			</div>
+			<div class="app-content" data-no-scroll="true">
+				<div class="app-section">
+					<div class="app-button" data-target="page5_1">Skills</div>
+				</div>
+				<div class="app-section">
+					<div class="app-button" data-target="page5_2">Store</div>
+				</div>
+				<div class="app-section">
+					<div class="app-button" data-target="page5_3">Settings</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="app-page" data-page="page2">
+		<!-- skillsPages -->
+		<div class="app-page" data-page="page5_1">
 			<div class="app-topbar">
 				<div class="app-button left" data-back="true">Back</div>
-				<div class="app-title">Page 2</div>
+				<div class="app-title">Skills</div>
 			</div>
 			<div class="app-content">
-				Page 2 is lonely
+				page 6 connected to 5
 			</div>
 		</div>
+
+		<!-- storePages -->
+		<div class="app-page" data-page="page5_2">
+			<div class="app-topbar">
+				<div class="app-button left" data-back="true">Back</div>
+				<div class="app-title">Store</div>
+			</div>
+			<div class="app-content">
+				<p> 
+					this needs to be in one page instead of navigating to new page.
+				</p>
+				<div class="app-section">
+					<div class="app-button" data-target="page5_2_1">Collection</div>
+				</div>
+				<div class="app-section">
+					<div class="app-button" data-target="page5_2_2">Secret</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- collectionPages -->
+
+		<!-- secretPages -->
+
+		<!-- settingPages -->
+		<div class="app-page" data-page="page5_3">
+			<div class="app-topbar">
+				<div class="app-button left" data-back="true">Back</div>
+				<div class="app-title">Settings</div>
+			</div>
+			<div class="app-content">
+				page 8 connected to 5
+			</div>
+		</div>
+
+
+
 
 		<!-- Scripts -->
 		<script src="/zerver/API.js"></script>
 		<script src="http://zeptojs.com/zepto.min.js"></script>
 		<script src="http://cdn.kik.com/cards/0.11.3/cards.js"></script>
 		<script src="http://cdn.kik.com/app/1.10.0/app.js"></script>
+		<script src="//points.kik.com/points.js"></script>
 		<script src="/js/main.js"></script>
+		<!-- <script>
+			var c=document.getElementById('myCanvas');
+			var ctx=c.getContext('2d');
+			ctx.fillStyle='#FF0000';
+			ctx.fillRect(0,0,370,400);
+		</script> -->
 	</body>
 </html>
