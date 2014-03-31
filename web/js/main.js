@@ -1,23 +1,23 @@
 
-
-
 (function (App) {
 	App.populator('intro', function (page) {
 		//body
 		$(page)
-    		.find('.app-button')
-    		.on('click', kik.getUser(function (user) {
-		    if ( !user ) {
-		        App.load('intro');
-		    } else {
-		        typeof user.username;  // 'string'
-		        typeof user.fullName;  // 'string'
-		        typeof user.firstName; // 'string'
-		        typeof user.lastName;  // 'string'
-		        typeof user.pic;       // 'string'
-		        typeof user.thumbnail; // 'string'
-		    }
-		});
+    		.find('#random')
+    		.on('click', function () {
+	      		kik.getUser(function (user) {
+				    if ( !user ) {
+				        App.load('intro');
+				    } else {
+				        typeof user.username;  // 'string'
+				        typeof user.fullName;  // 'string'
+				        typeof user.firstName; // 'string'
+				        typeof user.lastName;  // 'string'
+				        typeof user.pic;       // 'string'
+				        typeof user.thumbnail; // 'string'
+				    }
+				});
+    	});
 	});
 
 	App.populator('home', function (page) {
