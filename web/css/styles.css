@@ -2,6 +2,7 @@
 
 .my-widget {
 	/*for both-platform*/
+
 }
 
 .app-ios .my-widget {
@@ -11,6 +12,8 @@
 .app-android .my-widget {
 	/*android only*/
 }
+
+
 
 
 .app-section

@@ -5,10 +5,13 @@
 		$(page)
     		.find('.app-button.link')
     		.on('click', function () {
-	      		kik.getUser(function (user) {
+    			if(kik.getUser){
+    				kik.getUser(function (user) {
 				    if ( !user ) {
-				        App.load('intro');
+				    	console.log("denied");
+				    	//TODO
 				    } else {
+				    	App.load('home', user);
 				        typeof user.username;  // 'string'
 				        typeof user.fullName;  // 'string'
 				        typeof user.firstName; // 'string'
@@ -17,11 +20,23 @@
 				        typeof user.thumbnail; // 'string'
 				    }
 				});
+    			} else {
+    				App.load('home', {
+    					username: 'test',
+    					fullName: 'test1234',
+    					firstName: 'test1234 5678',
+    					lastName: '5678',
+    					pic: null,
+    					thumbnail: null
+    				})
+    			}
+	      		
     	});
 	});
 
-	App.populator('home', function (page) {
-		// put stuff here
+	App.populator('home', function (page, user) {
+		console.log(page);
+		page.querySelector('.text').innerHTML = user.username;
 
 	});
 
@@ -47,9 +62,7 @@
     	});
 	});
 
-	App.populator('page2_1', function (page) {
-		// body...
-	})
+	
 
 	App.populator('page3', function (page) {
 		// body...
@@ -61,3 +74,4 @@
 		App.load('intro');
 	}
 })(App);
+
