@@ -3,7 +3,7 @@
 	App.populator('intro', function (page) {
 		//body
 		$(page)
-    		.find('#random')
+    		.find('.app-button')
     		.on('click', function () {
 	      		kik.getUser(function (user) {
 				    if ( !user ) {
