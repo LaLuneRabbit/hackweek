@@ -1,4 +1,18 @@
 /* put stuff here */
+
+.my-widget {
+	/*for both-platform*/
+}
+
+.app-ios .my-widget {
+	/*ios only*/
+}
+
+.app-android .my-widget {
+	/*android only*/
+}
+
+
 .app-section
 {
 	width: 200px; /*same as the height*/
