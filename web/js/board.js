@@ -88,15 +88,15 @@ function drawGrid (canvasBase) {
 	    
 		for (rowCounter = 0; rowCounter < canvasBase.setRow; rowCounter++ ) {
             for (colCounter = 0; colCounter < canvasBase.setCol; colCounter++) {
-                canvasBase.canvasContent.strokeRect(
-                	rowCounter * canvasBase.setBlockX, 
-	    			colCounter * canvasBase.setBlockY, 
-	    			canvasBase.setBlockX, 
-	    			canvasBase.setBlockY);
-	    		canvasBase.canvasContent.stroke();               
+                canvasBase.canvasContent.strokeRect(rowCounter * canvasBase.setBlockX, 
+	    	colCounter * canvasBase.setBlockY, 
+	    	canvasBase.setBlockX, canvasBase.setBlockY);
+	    canvasBase.canvasContent.stroke();            
+                
             }
 			
 		}
+
 
 		canvasBase.canvasContent.lineWidth = 1;
         //ctxBoard.strokeStyle = 'red';
@@ -124,10 +124,11 @@ function drawGrid (canvasBase) {
 
 
 			//arrow keys
+			ctxButton = buttonCanvas.getContext('2d');
 		    BUTTON_BLOCK_SIZE_X = buttonCanvas.width / BUTTON_NUMBER_OF_ROWS;
 			BUTTON_BLOCK_SIZE_Y = buttonCanvas.height / BUTTON_NUMBER_OF_COLS;
 		    buttonCanvasObj = 
-				new canvasValue (ctxButton, BUTTON_NUMBER_OF_ROWS, BUTTON_NUMBER_OF_COLS, "null". BUTTON_BLOCK_SIZE_X, BUTTON_BLOCK_SIZE_Y);
+				new canvasValue (ctxButton, BUTTON_NUMBER_OF_ROWS, BUTTON_NUMBER_OF_COLS, "null", BUTTON_BLOCK_SIZE_X, BUTTON_BLOCK_SIZE_Y);
 			drawGrid(buttonCanvasObj);
 
 			
