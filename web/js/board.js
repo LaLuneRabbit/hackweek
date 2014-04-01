@@ -125,14 +125,15 @@ function drawGrid (canvasBase) {
 
 			//arrow keys
 			ctxButton = buttonCanvas.getContext('2d');
+			buttonCanvas.style.position = 'absolute';
+			buttonCanvas.style.top = 350 + 'px';
+   			buttonCanvas.style.left = 10 + 'px';
+
 		    BUTTON_BLOCK_SIZE_X = buttonCanvas.width / BUTTON_NUMBER_OF_ROWS;
 			BUTTON_BLOCK_SIZE_Y = buttonCanvas.height / BUTTON_NUMBER_OF_COLS;
 		    buttonCanvasObj = 
 				new canvasValue (ctxButton, BUTTON_NUMBER_OF_ROWS, BUTTON_NUMBER_OF_COLS, "null", BUTTON_BLOCK_SIZE_X, BUTTON_BLOCK_SIZE_Y);
 			drawGrid(buttonCanvasObj);
-
-			
-			
 
 			//icon user must reach
 			//drawGoal();
