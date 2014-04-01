@@ -88,45 +88,45 @@ App.populator('page0', function (page) {
 
 	}
 
-function drawGrid (canvasBase) {
-	    var rowCounter;
-        var colCounter;
+	function drawGrid (canvasBase) {
+		    var rowCounter;
+	        var colCounter;
+		    
+			for (rowCounter = 0; rowCounter < canvasBase.setRow; rowCounter++ ) {
+	            for (colCounter = 0; colCounter < canvasBase.setCol; colCounter++) {
+	                canvasBase.canvasContent.strokeRect(rowCounter * canvasBase.setBlockX, 
+		    	colCounter * canvasBase.setBlockY, 
+		    	canvasBase.setBlockX, canvasBase.setBlockY);
+		    canvasBase.canvasContent.stroke();            
+	                
+	            }
+				
+			}
+
+
+			canvasBase.canvasContent.lineWidth = 1;
+	        //ctxBoard.strokeStyle = 'red';
+			//canvasBase.canvasContent.strokeRect (0, 0, 
+			//	canvasBase.setRow * canvasBase.setBlock, canvasBase.setCol * canvasBase.setBlock);
+	}
+
+	function drawGoal (canvasBase) {
+		var randomX  = Math.floor((Math.random() * canvasBase.setRow));
+		var randomY = Math.floor((Math.random() * canvasBase.setCol));
+
+		var positionX = randomX * canvasBase.setBlock;
+		var positionY = randomY * canvasBase.setBlock;
+
+		var goalImageObj = new Image();
+
+		goalImageObj.onload = function() {
+	    canvasBase.canvasContent.drawImage(goalImageObj, positionX, positionY);
+	    };
 	    
-		for (rowCounter = 0; rowCounter < canvasBase.setRow; rowCounter++ ) {
-            for (colCounter = 0; colCounter < canvasBase.setCol; colCounter++) {
-                canvasBase.canvasContent.strokeRect(rowCounter * canvasBase.setBlockX, 
-	    	colCounter * canvasBase.setBlockY, 
-	    	canvasBase.setBlockX, canvasBase.setBlockY);
-	    canvasBase.canvasContent.stroke();            
-                
-            }
-			
-		}
+	    goalImageObj.src = "/img/Farm-Fresh_door.png";
 
 
-		canvasBase.canvasContent.lineWidth = 1;
-        //ctxBoard.strokeStyle = 'red';
-		//canvasBase.canvasContent.strokeRect (0, 0, 
-		//	canvasBase.setRow * canvasBase.setBlock, canvasBase.setCol * canvasBase.setBlock);
-}
-
-function drawGoal (canvasBase) {
-	var randomX  = Math.floor((Math.random() * canvasBase.setRow));
-	var randomY = Math.floor((Math.random() * canvasBase.setCol));
-
-	var positionX = randomX * canvasBase.setBlock;
-	var positionY = randomY * canvasBase.setBlock;
-
-	var goalImageObj = new Image();
-
-	goalImageObj.onload = function() {
-    canvasBase.canvasContent.drawImage(goalImageObj, positionX, positionY);
-    };
-    
-    goalImageObj.src = "/img/Farm-Fresh_door.png";
-
-
-}
+	}
 	
 
 	function drawBase(page) { 
@@ -134,6 +134,7 @@ function drawGoal (canvasBase) {
 		buttonCanvas = page.querySelector('#testButtonCanvas')
 		goalCanvas = page.querySelector('#testGoalCanvas');
 		makerCanvas = page.querySelector('#testInterfereCanvas');
+		userCanvas = page.querySelector('#testUserCanvas');
 
 		if (boardCanvas.getContext)
 		{
@@ -164,6 +165,20 @@ function drawGoal (canvasBase) {
 			goalCanvasObj =
 				new canvasValue (ctxGoal, GOAL_NUMBER_OF_ROWS, GOAL_NUMBER_OF_COLS, GOAL_BLOCK_SIZE, "null", "null");
 			drawGoal(goalCanvasObj);
+
+			//will make a new function later, just for testing purpose right now
+			ctxUser = userCanvas.getContext('2d');
+			userCanvas.style.position = 'absolute';
+			userCanvas.style.top = 0+ 'px';
+   			userCanvas.style.left = 0 + 'px';
+			var userImageObj = new Image();
+
+			userImageObj.onload = function() {
+		    	ctxUser.drawImage(userImageObj, 0, 0);
+		    };
+		    
+		    userImageObj.src = "/img/stickman.jpg";
+		    /////////////////////////////////////////////////
 
 			//add interference pieces
 			//drawMakerPieces();
