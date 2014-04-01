@@ -13,8 +13,46 @@
 	/*android only*/
 }
 
+.gamePlay
+{
+	position: relative;
+}
+
+#gameUICanvas, #gameBoardCanvas, #gamePieceCanvas, #interfereCanvas, #testGameBoardCanvas
+{
+    position:absolute;
+}
 
 
+
+.placeholder
+{
+	position: relative;
+}
+
+.affects
+{
+	position: absolute;
+	top: 0px;
+}
+
+.viewers
+{
+	position: absolute;
+	top: 20px;
+}
+
+.opponent
+{
+	position: absolute;
+	top: 480px;
+}
+
+.user
+{
+	position: absolute;
+	top: 500px;
+}
 
 .app-section
 {

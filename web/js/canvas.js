@@ -2,12 +2,14 @@ App.populator('page2_1', function (page) {
 	var c_canvas = page.querySelector("#gameBoardCanvas");
 	var context = c_canvas.getContext("2d");
 
+	var c=page.querySelector("#gameUICanvas");
+	var ctx=c.getContext("2d");
 
 	function drawBoard(){
-		var maxValueX = 271
-		var maxValueY = 291
-		var minValueX = 25.5
-		var minValueY = 45.5
+		var maxValueX = 256
+		var maxValueY = 306
+		var minValueX = 10.5
+		var minValueY = 60.5
 
 		for (var x = minValueX; x < maxValueX; x += 35) {
 		  context.moveTo(x, minValueY);
@@ -25,6 +27,10 @@ App.populator('page2_1', function (page) {
 	}
 
 	drawBoard();
+	
+	ctx.rect(20,20,150,100);
+	ctx.stroke();
+
 })
 
 //function handleClick(e) {}

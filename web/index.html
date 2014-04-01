@@ -7,6 +7,8 @@
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<meta name="kik-prefer" content="true">
 		<link rel="kik-icon" href="/img/icon.png">
+		<link rel="terms" href="path/to/terms/of/use.html">
+		<link rel="privacy" href="path/to/privacy/policy.html">
 
 		<!-- Styles -->
 		<link rel="stylesheet" href="http://cdn.kik.com/app/1.10.0/default.css">
@@ -52,7 +54,7 @@
 				</div>
 
 				<div class="app-section">
-					<div class="app-button" data-target="page2_1">To Be Removed</div>
+					<div class="app-button" data-target="page0">To Be Removed</div>
 				</div>
 
 				<div class="app-section">
@@ -71,7 +73,7 @@
 			<div class="app-content">
 				<div class="app-section">
 					<!-- kik.pickUsers goes here? -->
-					<div class="app-button userPick" data-target="page2_1">Select an User</div>
+					<div class="app-button userPick" data-target="">Select an User</div>
 				</div>
 				<!-- grab a list of user with challengeAllowed = true -->
 				<ul class="app-list">
@@ -91,31 +93,23 @@
 			</div>
 			<div class="app-content" data-no-scroll="true">
 				<div class="gamePlay">
+					<canvas class="gameCanvas" id="gameUICanvas" width="325px" height="530px">
+						our browser does not support the HTML5 canvas tag.
+					</canvas>
 
 					<canvas class="gameCanvas" id="gameBoardCanvas" width="300px" height="400px" >
     					our browser does not support the HTML5 canvas tag.
 					</canvas>
 
+					<canvas class="gameCanvas" id="gamePieceCanvas" width="300px" height="400px">
+						our browser does not support the HTML5 canvas tag.
+					</canvas>
 
-					<!--
-					<canvas class="gameCanvas" id="gameUICanvas">
+					<canvas class="gameCanvas" id="interfereCanvas" width="300px" height="400px">
 						our browser does not support the HTML5 canvas tag.
 					</canvas>
-					<canvas class="gameCanvas" id="gameUICanvas">
-						our browser does not support the HTML5 canvas tag.
-					</canvas>
-					<canvas class="gameCanvas" id="gameBoardCanvas">
-						our browser does not support the HTML5 canvas tag.
-					</canvas>
-					<canvas class="gameCanvas" id="gamePieceCanvas">
-						our browser does not support the HTML5 canvas tag.
-					</canvas>
-					<canvas class="gameCanvas" id="interfereCanvas">
-						our browser does not support the HTML5 canvas tag.
-					</canvas> -->
 				</div>
-
-
+				
 			</div>
 		</div>
 
@@ -205,6 +199,55 @@
 			</div>
 		</div>
 
+		<!-- testingPages -->
+		<div class="app-page" data-page="page0">
+			<div class="app-topbar">
+				<div class="app-button left" data-back="true">Back</div>
+				<div class="app-title">testGame</div>
+			</div>
+			<div class="app-content" data-no-scroll="true">
+				<div class="gamePlay">
+					<canvas class="gameCanvas" id="testGameBoardCanvas" width="300px" height="400px" >
+    					our browser does not support the HTML5 canvas tag.
+					</canvas>
+
+					<canvas class="gameCanvas" id="testButtonCanvas" width="300px" height="100px">
+						our browser does not support the HTML5 canvas tag.
+					</canvas>
+
+					<!--
+					<canvas class="gameCanvas" id="testGameUICanvas" width="325px" height="530px">
+						our browser does not support the HTML5 canvas tag.
+					</canvas>
+
+					<canvas class="gameCanvas" id="testGameBoardCanvas" width="300px" height="400px" >
+    					our browser does not support the HTML5 canvas tag.
+					</canvas>
+
+					<canvas class="gameCanvas" id="testButtonCanvas" width="300px" height="400px">
+						our browser does not support the HTML5 canvas tag.
+					</canvas>
+
+					<canvas class="gameCanvas" id="testGamePieceCanvas" width="300px" height="400px">
+						our browser does not support the HTML5 canvas tag.
+					</canvas>
+
+					<canvas class="gameCanvas" id="testInterfereCanvas" width="300px" height="400px">
+						our browser does not support the HTML5 canvas tag.
+					</canvas>
+
+					<canvas class="gameCanvas" id="testGoalCanvas" width="300px" height="400px">
+						our browser does not support the HTML5 canvas tag.
+					</canvas>
+
+					<canvas class="gameCanvas" id="testUserCanvas" width="300px" height="400px">
+						our browser does not support the HTML5 canvas tag.
+					</canvas>
+					-->
+				</div>
+				
+			</div>
+		</div>
 
 
 
@@ -216,6 +259,9 @@
 		<script src="http://cdn.kik.com/app/1.10.0/app.js"></script>
 		<script src="http://points.kik.com/points.js"></script>
 		<script src="/js/main.js"></script>
+		<!--
 		<script src="/js/canvas.js"></script>
+		-->
+		<script src="/js/board.js"></script>
 	</body>
 </html>
