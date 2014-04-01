@@ -35,6 +35,12 @@ App.populator('page0', function (page) {
 	var ctxButton;
 	var buttonCanvasObj;
 
+	var GOAL_NUMBER_OF_ROWS = 7;
+	var GOAL_NUMBER_OF_COLS = 7;
+	var GOAL_BLOCK_SIZE;
+	var ctxGoal;
+	var goalCanvasObj;
+
 	function canvasValue (canvasContent, setRow, setCol, setBlock, setBlockX, setBlockY) {
 		this.canvasContent = canvasContent;
 		this.setRow = setRow;
@@ -104,6 +110,23 @@ function drawGrid (canvasBase) {
 		//	canvasBase.setRow * canvasBase.setBlock, canvasBase.setCol * canvasBase.setBlock);
 }
 
+function drawGoal (canvasBase) {
+	var randomX  = Math.floor((Math.random() * canvasBase.setRow));
+	var randomY = Math.floor((Math.random() * canvasBase.setCol));
+
+	var positionX = randomX * canvasBase.setBlock;
+	var positionY = randomY * canvasBase.setBlock;
+
+	var goalImageObj = new Image();
+
+	goalImageObj.onload = function() {
+    canvasBase.canvasContent.drawImage(goalImageObj, positionX, positionY);
+    };
+    
+    goalImageObj.src = "/img/Farm-Fresh_door.png";
+
+
+}
 	
 
 	function drawBase(page) { 
@@ -136,7 +159,11 @@ function drawGrid (canvasBase) {
 			drawGrid(buttonCanvasObj);
 
 			//icon user must reach
-			//drawGoal();
+			ctxGoal = goalCanvas.getContext('2d');
+			GOAL_BLOCK_SIZE = (goalCanvas.height - 100) / GOAL_NUMBER_OF_ROWS;
+			goalCanvasObj =
+				new canvasValue (ctxGoal, GOAL_NUMBER_OF_ROWS, GOAL_NUMBER_OF_COLS, GOAL_BLOCK_SIZE, "null", "null");
+			drawGoal(goalCanvasObj);
 
 			//add interference pieces
 			//drawMakerPieces();
