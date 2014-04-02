@@ -44,6 +44,14 @@ var userPic;
 		userName = user.username;
 		userPic = user.thumbnail;
 
+		currentUser	 = 
+			new userBaseValue (user.username, user.thumbnail, 
+						DAILY_TICKET_COUNT, PAID_TICKET_COUNT, 
+						DAILY_MAP_COUNT, PAID_MAP_COUNT, 
+						BASE_SKILL_LEVEL, BASE_SKILL_LEVEL, 
+						BASE_SKILL_LEVEL, BASE_SKILL_LEVEL, BASE_SKILL_LEVEL, 
+						BASE_SKILL_LEVEL, BASE_SKILL_LEVEL, BASE_SKILL_LEVEL);
+
 	});
 
 	App.populator('page2', function (page) {
@@ -134,10 +142,10 @@ var userPic;
 		// body...
 	})
 
-	try {
-		App.restore();
-	} catch (err) {
+	// try {
+	// 	//App.restore();
+	// } catch (err) {
 		App.load('intro');
-	}
+	// }
 })(App);
 
