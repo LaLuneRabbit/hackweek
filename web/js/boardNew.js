@@ -43,6 +43,8 @@ App.populator('page0', function (page) {
 	}
 
 	function drawUser (canvasContent, user) {
+		user.positionX = 0; //testing purpose
+		user.positionY = 0; //testing purpose
 		if (user.positionX == 'null'){
 			alert("please place your avatar on board before tapping on button.");
 		}
@@ -116,15 +118,25 @@ App.populator('page0', function (page) {
 		console.log('HEY WHATS GOOD');
 		event.preventDefault();                 
 
-		touchX = event.touches[0].pageX - boardCanvas.offsetLeft;
-		console.log(touchX);
-		touchY = event.touches[0].pageY - boardCanvas.offsetTop;
-		console.log(touchY);
+		touchX = event.touches[0].pageX; //- boardCanvas.offsetLeft;
+		//console.log(touchX);
+		///console.log(boardCanvas.offsetLeft);
+		
+		touchY = event.touches[0].pageY; //- boardCanvas.offsetTop;
+		//console.log(touchY);
 
-		touchRow = Math.floor (touchY / GAME_BLOCK_SIZE_Y); 
+		touchRow = Math.floor (touchX / GAME_BLOCK_SIZE_X); 
+		console.log(touchX);
+		console.log(GAME_BLOCK_SIZE_X);
 		console.log(touchRow);
-		touchCol = Math.floor (touchX / GAME_BLOCK_SIZE_X);
+
+		//console.log(touchRow);
+		touchCol = Math.floor (touchY / GAME_BLOCK_SIZE_Y) - 1;
+		console.log(touchY);
+		console.log(GAME_BLOCK_SIZE_Y);
 		console.log(touchCol);
+		//console.log(touchCol);
+		//alert(touchRow);
 	});
 
 	setButton = page.querySelector('#submit-game');

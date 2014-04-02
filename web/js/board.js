@@ -316,6 +316,8 @@ App.populator('page0', function (page) {
 				touchCol = Math.floor (touchX / buttonCanvasObj.setBlockX);
 				console.log(touchCol);
 
+				
+
 				var oldX;
 				var oldY;
 
