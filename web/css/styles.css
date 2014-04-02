@@ -13,69 +13,22 @@
 	/*android only*/
 }
 
-.gamePlay
-{
-	position: relative;
+.buttons {
+	border: 0;
+	width: 80px;
+	height: 40px;
 }
 
-#gameUICanvas, #gameBoardCanvas, #gamePieceCanvas, #interfereCanvas, #testGameBoardCanvas
-{
-    position:absolute;
-}
-
-
-
-
-
-.placeholder
-{
-	position: relative;
-}
-
-.affects
-{
+/*
+#photoAdd {
 	position: absolute;
-	top: 0px;
-}
-
-.viewers
-{
-	position: absolute;
-	top: 20px;
-}
-
-.opponent
-{
-	position: absolute;
-	top: 480px;
-}
-
-.user
-{
-	position: absolute;
-	top: 500px;
-}
-
-.app-section
-{
-	width: 200px; /*same as the height*/
-	height: 30px;
-	text-align: center;
-	/*bottom: 10px;*/
-
-}
-
-
-.app-button
-{
-	text-align: left;
-	font-style: italic;
-	font-size: 16px;
-}
-
-.app-section.intro-home
-{
-	position: relative;
 	top: 400px;
-	left: 50px;
+	left: 60px;
 }
+
+#photoConfirm {
+	position: absolute;
+	top: 400px;
+	left: 200px;
+
+*/
