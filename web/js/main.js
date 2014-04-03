@@ -3,6 +3,7 @@ var userPic;
 
 
 (function (App) {
+	
 
 	App.populator('intro', function (page) {
 		//body
@@ -39,29 +40,15 @@ var userPic;
 	});
 
 	App.populator('home', function (page, user) {
-/*
-		console.log(page);
-		page.querySelector('.text').innerHTML = user.username;
-		userName = user.username;
-		userPic = user.thumbnail;
 
-/*
-		currentUser	 = 
-			new userBaseValue (user.username, user.thumbnail, 
-						DAILY_TICKET_COUNT, PAID_TICKET_COUNT, 
-						DAILY_MAP_COUNT, PAID_MAP_COUNT, 
-						BASE_SKILL_LEVEL, BASE_SKILL_LEVEL, 
-						BASE_SKILL_LEVEL, BASE_SKILL_LEVEL, BASE_SKILL_LEVEL, 
-						BASE_SKILL_LEVEL, BASE_SKILL_LEVEL, BASE_SKILL_LEVEL);
-*/
-	});
+		currentUser = user.username;
 
-	App.populator('page2', function (page) {
-		// put stuff here
-		$(page)
-    		.find('.app-button.userPick')
-    		.on('click', function () {
-	      		kik.pickUsers({
+		userSelected = page.querySelector('#new-game-button');
+
+		userSelected.addEventListener('touchstart', function(event) {
+			console.log("sending to user!");
+
+			kik.pickUsers({
 				    minResults : 1 , // number >= 0
 				    maxResults : 1   // number >  0
 				}, function (users) {
@@ -76,25 +63,59 @@ var userPic;
 				            typeof user.lastName;  // 'string'
 				            typeof user.pic;       // 'string'
 				            typeof user.thumbnail; // 'string'
-				            /*kik.send(user, {
-								title : 'zodiac' ,
-								text  : '" + userName + " invite you to play zodiac',
-							});*/
-				            App.load('page2_1', user);
+         					App.load("page2", user);
 				        });
 				    }
-				});
-    	});
+			});
+
+		});
+
+		startGame = page.querySelector('#start-game-button');
+		startGame.addEventListener('touchstart', function(event) {
+			console.log("testing fake game data and game play");
+
+			var posTest = {
+				x: 6,
+				y: 6
+			};
+
+			var dataTest = {
+					sender: currentUser,
+			    	url: '/img/stickman.jpg',
+			    	pos: posTest   	
+			};
+
+			var receiverTest = {
+				userName: "receiver.qa",
+				fullName: "test",
+				firstName: "receiver",
+				lastName: "qa"
+				//pic:
+				//thumbnail:
+			};
+
+			//gameStorage[receiverTest.userName] = dataTest;
+
+			//console.log(dataTest.url);
+			//console.log(gameStorage[receiverTest]);
+			App.load('page3-1', dataTest);
+			//App.load('page3-1', receiverTest.userName, gameStorage);
+
+		});
+
 	});
 
 
-	App.populator('page3', function (page) {
-	
-	})
 
 	App.populator('page0', function (page) {
 		// body...
 	})
+
+	if (kik.message) {
+		console.log('time to load page3');
+    	App.load('page3');
+	}
+
 
 	// try {
 	// 	//App.restore();

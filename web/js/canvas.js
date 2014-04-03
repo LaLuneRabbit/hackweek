@@ -1,4 +1,4 @@
-App.populator('page2', function (page) {
+App.populator('page2', function (page, receiver) {
 
 	function oldPostion (
 		positionX, positionY) {
@@ -6,6 +6,7 @@ App.populator('page2', function (page) {
 		this.positionX = positionX;
 		this.positionY = positionY;
 	}
+
 
 
 
@@ -127,6 +128,7 @@ App.populator('page2', function (page) {
 					        // action cancelled by user
 					    } else {
 					    	baseImageObj.src = photos[0];
+					    	console.log(baseImageObj.src);
 					        basemageObj.onload = function() {
 								ctxPhoto.drawImage(baseImageObj, 0, 0, 300, 300);
 							};
@@ -136,47 +138,34 @@ App.populator('page2', function (page) {
 		});
 
 
-	picConfirmButton = page.querySelector("#photoConfirm");
+	picConfirmButton = page.querySelector('#photoConfirm');
 		picConfirmButton.style.position = 'absolute';
 		picConfirmButton.style.top = 350 + 'px';
 		picConfirmButton.style.left = 190 + 'px';
 
 		picConfirmButton.addEventListener('touchstart', function(event) {
-			console.log("sending to user!");
+			alert("I got to here!");
 
-			var userPicked;
+			console.log("I got to here!");
+			console.log(receiver);
 
-			kik.pickUsers({
-				    minResults : 1 , // number >= 0
-				    maxResults : 1   // number >  0
-				}, function (users) {
-				    if ( !users ) {
-				        console.log("denied");
-				    	//TODO
-				    } else {
-				        users.forEach(function (user) {
-				            typeof user.username;  // 'string'
-				            typeof user.fullName;  // 'string'
-				            typeof user.firstName; // 'string'
-				            typeof user.lastName;  // 'string'
-				            typeof user.pic;       // 'string'
-				            typeof user.thumbnail; // 'string'
+			//take points when user confirm here!!!
+			var pos = {
+				x: zoneOld.positionX,
+				y: zoneOld.positionY
+			};
+			kik.send(receiver.username, {
+			    title : 'hi' ,
+			    pic   : '/img/stickman.jpg' , // optional
+			    text  : 'this is the text body'  ,
+			    noForward : true ,
+			    /*data      : {
+			    	url: baseImageObj.src,
+			    	pos: pos,    	
+			    }  */      
 
-				            userPicked = user;
-				           
-				        });
-				    }
 			});
-
-			kik.send(userPicked, {
-			    title     : 'Secret Picture'         ,
-			    text      : 'You have recieved a secret picture!',
-			    //pic       : 'http://mysite.com/pic' , // optional
-			    //big       : true                    , // optional
-			    noForward : false                    //, optional
-			    //data      : { some : 'json' }         // optional
-			});
-		})
+		});
 
    		// body...
    

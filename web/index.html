@@ -13,6 +13,9 @@
 		<!-- Styles -->
 		<link rel="stylesheet" href="http://cdn.kik.com/app/1.10.0/default.css">
 		<link rel="stylesheet" href="/css/styles.css">
+		<!--
+		<link rel="stylesheet" href="/css/page-intro.css">
+		-->
 	</head>
 
 	<body>
@@ -38,14 +41,14 @@
 			<div class="app-content" data-no-scroll="true">
 
 				<div class="app-section">
-					<div class="app-button" data-target="page2">New Game</div>
+					<div class="app-button" id="new-game-button"data-target="page2">New Game</div>
 				</div>
 				<div class="app-section">
 					<div class="app-button" data-target="page3">Game in Progress</div>
 				</div>
 				
 				<div class="app-section">
-					<div class="app-button" data-target="page0">Testing Link</div>
+					<div class="app-button" id="start-game-button" data-target="">Testing Link</div>
 				</div>
 
 			</div>
@@ -89,8 +92,26 @@
 			</div>
 			<div class="app-content">
 				<!-- play game here -->
+				<div class="game-list">
+					
 
+				</div>
 
+			</div>
+		</div>
+
+		<div class="app-page" data-page="page3-1">
+			<div class="app-topbar">
+				<div class="app-button left" data-back="true">Back</div>
+				<div class="app-title">Settings</div>
+			</div>
+			<div class="app-content">
+				<!-- play game here -->
+				<div class="gameInProgress">
+					<canvas class="playCanvas" id="receivedPhotoCanvas" width="300px" height="300px">
+						our browser does not support the HTML5 canvas tag.
+					</canvas>
+				</div>
 			</div>
 		</div>
 
@@ -121,9 +142,11 @@
 		-->
 		<!--
 		<script src="/js/varible.js"></script>
-		<script src="/js/objects.js"></script>
 		-->
+		<script src="/js/objects.js"></script>
+		
 		<script src="/js/main.js"></script>
 		<script src="/js/canvas.js"></script>
+		<script src="/js/page3.js"></script>
 	</body>
 </html>
