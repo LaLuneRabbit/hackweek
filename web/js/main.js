@@ -70,6 +70,7 @@ var userPic;
 
 		});
 
+		/*
 		startGame = page.querySelector('#start-game-button');
 		startGame.addEventListener('touchstart', function(event) {
 			console.log("testing fake game data and game play");
@@ -102,7 +103,7 @@ var userPic;
 			//App.load('page3-1', receiverTest.userName, gameStorage);
 
 		});
-
+		*/
 	});
 
 
