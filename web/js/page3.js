@@ -1,13 +1,44 @@
 	App.populator('page3', function (page) {
-		
+		var gameListedTemp = page.querySelector('.game-static-info');
+		var gameListedParent = gameListedTemp.parentNode;
 
+		function setPage () {
+			//gameListedParent.removeChild(gameListedTemp);
+			gameListedTemp.parentNode.removeChild(gameListedTemp);
+			var gameListing = gameStorage;
+			gameListing.forEach( function(gameInfo) {
+				console.log(gameInfo);
+				createGame(gameInfo);
+			});
+		}
 
+		function createGame (gameInfo) {
+			var newGameListed = gameListedTemp.cloneNode(true);
+			var img = page.createElement
+			newGameListed.querySelector('.sender-profile-pic').src = gameInfo.senderProfilPic;
+			newGameListed.querySelector('.sender-firstname').innerHTML = gameInfo.senderFirstName;
 
+			new Clickable(newGameListed);
+			newGameListed.addEventListener('click', function() {
+				App.load('page3-1', gameInfo);
+			}, false);
+
+			gameListedParent.appendChild(newGameListed);
+		}
+
+		setPage();
 	
 	})
 
 	App.populator('page3-1', function (page, gameData) {
-
+		console.log("you have gotten to the right page");
+		console.log("all the data you are suppose to have on this page");
+		console.log(gameData.gameID);
+		console.log(gameData.senderFirstName);
+		console.log(gameData.senderProfilPic);
+		console.log(gameData.gamePhotoURL);
+		console.log(gameData.itemPic);
+		console.log(gameData.itemPosition);
 		//console.log(personReceiving);
 		//console.log(gameDataArray);
 		//gameData = gameDataArray[personReceiving];
@@ -27,13 +58,14 @@
 			};
 
 			//canvasContent.drawImage(playImageObj, 0, 0, 300, 300);
-			playImageObj.src = gameData.url;
+			//playImageObj.src = gameData.url;
+			playImageObj.src = gameData.gamePhotoURL;
 		}
 
 
 		function checkZone (canvasContent, touchedRow, touchedCol, touchedZoneSize) {
 			// body...
-			if (touchedRow == gameData.pos.x && touchedCol == gameData.pos.y) {
+			if (touchedRow == gameData.itemPosition.x && touchedCol == gameData.itemPosition.y) {
 				console.log("you won!");
 				var areaInPx = {
 					x: touchedRow * touchedZoneSize,
@@ -46,7 +78,8 @@
 						areaInPx.x, areaInPx.y, touchedZoneSize, touchedZoneSize);
 				};
 			
-				itemImageObj.src = '/img/stickman.jpg';
+				//itemImageObj.src = '/img/stickman.jpg';
+				itemImageObj.src = gameData.itemPic;
 			} else {
 				console.log("you missed!");
 			}
