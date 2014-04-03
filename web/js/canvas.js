@@ -1,5 +1,7 @@
 App.populator('page2', function (page, receiver) {
 
+	photoExist = "false";
+
 	function oldPostion (
 		positionX, positionY) {
 		// body...
@@ -132,6 +134,7 @@ App.populator('page2', function (page, receiver) {
 					        basemageObj.onload = function() {
 								ctxPhoto.drawImage(baseImageObj, 0, 0, 300, 300);
 							};
+							photoExist = "true";
 					    }
 				});
 			
@@ -149,22 +152,32 @@ App.populator('page2', function (page, receiver) {
 			console.log("I got to here!");
 			console.log(receiver);
 
-			//take points when user confirm here!!!
-			var pos = {
-				x: zoneOld.positionX,
-				y: zoneOld.positionY
-			};
-			kik.send(receiver.username, {
-			    title : 'hi' ,
-			    pic   : '/img/stickman.jpg' , // optional
-			    text  : 'this is the text body'  ,
-			    noForward : true ,
-			    /*data      : {
-			    	url: baseImageObj.src,
-			    	pos: pos,    	
-			    }  */      
+			if (zoneOld.positionX == "null" && photoExist == "true") {
+				//have an alert box somehow
 
-			});
+			} else {
+
+				var pos = {
+					x: zoneOld.positionX,
+					y: zoneOld.positionY
+				};
+
+				kik.send(receiver.username, {
+				    title : 'hi' ,
+				    pic   : '/img/stickman.jpg' , // optional
+				    text  : 'this is the text body'  ,
+				    noForward : true ,
+				    /*data      : {
+				    	url: baseImageObj.src,
+				    	pos: pos,    	
+				    }  */      
+
+				});
+
+			}
+
+			
+
 		});
 
    		// body...
