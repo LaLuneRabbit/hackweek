@@ -1,6 +1,6 @@
 App.populator('page0', function (page, photoURL) {
 		kik.browser.setOrientationLock('portrait');
-		points.debug = true;
+		//points.debug = true;
 
 		// var goalPosValue = {
 		// 	x : 1,
