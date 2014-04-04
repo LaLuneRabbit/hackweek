@@ -1,5 +1,5 @@
 App.populator('page0', function (page, photoURL) {
-		
+		kik.browser.setOrientationLock('portrait');
 		points.debug = true;
 
 		// var goalPosValue = {
@@ -140,7 +140,10 @@ App.populator('page0', function (page, photoURL) {
  
 			//canvasContent.drawImage(playImageObj, 0, 0, 300, 300);
 			playImageObj.src = currentPhotoURL;
+			var old = page.querySelector('#shovel-count-value').innerHTML;
+			page.querySelector('#shovel-count-value').innerHTML = Number(old) + 15;
 			setupPos();
+
 		}
 
 		// function getImage (...) {

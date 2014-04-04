@@ -5,7 +5,7 @@ var userPic;
 (function (App) {	
 
 	App.populator('intro', function (page) {
-
+		kik.browser.setOrientationLock('portrait');
 		var enterGameButton = page.querySelector('#enter-game-button');
 		enterGameButton.addEventListener('touchstart', function(event) {
 			App.load('home');
@@ -15,7 +15,7 @@ var userPic;
 
 	App.populator('home', function (page, user) {
 
-
+		kik.browser.setOrientationLock('portrait');
 		currentUser = user.username;
 
 		userSelected = page.querySelector('#new-game-button');
