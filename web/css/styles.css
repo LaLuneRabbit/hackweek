@@ -20,22 +20,35 @@
 }
 
 .app-content {
-	background: rgba(145, 99, 41, 0.45);
+	background-image: url('/img/background.png');
 }
 
 .treasure-hunt-photo {
 	width: 300px;
 	height: 300px;
-	margin: 7% 3% 0% 3%;
+	margin: 7% 3% 0% 2%;
+	border-style: solid;
+	border-color: #200000;
+	border-radius: 25%;
+	border-width: 4px;
 }
 
-.app-section.intro-home {
+/*.app-section.intro-home {
 	position: relative;
 	top: 40px;
 	width: 200px;
 	margin: 0% 20% 0% 20%;
-}
+}*/
 
+.intro-home {
+	margin-bottom: 5%;
+	margin-top: 10%;
+	border-radius: 5%;
+	width: 60%;
+	height: 8%;
+	padding: 4%;
+	margin-left: 15%;
+}
 
 #camera-photo-icon {
 	height: 30%;
@@ -43,7 +56,7 @@
 	margin: 3% 0% 2% 2%;
 }
 
-#camera-photo-icon2 {
+#camera-photo-icon2, #camera-photo-icon3 {
 	position: absolute;
 	height: 38%;
 	width: 95%;
