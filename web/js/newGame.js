@@ -20,8 +20,10 @@ App.populator('page0', function (page, photoURL) {
 		var goalPosValue;
 		var bombPosValue;
 		var kikPointsPosValue;
+		var playImageObj;
 
 		var randomPosValue;
+		var ctxPlay;
 
 		//have an array that store all the image link
 
@@ -105,9 +107,9 @@ App.populator('page0', function (page, photoURL) {
 					text: "I guess you will have to START OVER...",
 					okButton: "No Problem"
 				});
-			setupPos();
-
-
+			ctxPlay.clearRect(0,0,300,300);
+			ctxPlay.drawImage(playImageObj, 0, 0, 300, 300);
+			setupPos(); 
 		}
 
 		function kikPointsFound (tappedPosition) {
@@ -118,7 +120,7 @@ App.populator('page0', function (page, photoURL) {
 					okButton: "Let's keep going"
 				});
 
-			restKikPointsPos();
+			resetKikPointsPos();
 
 		}
 
@@ -130,13 +132,15 @@ App.populator('page0', function (page, photoURL) {
 					title: "...",
 					text: "You actually WON!",
 					okButton: "More Treasure Hunt"
-				}, function (success) {
-					if (success) {
-						shuffleGamePhoto();
-						setupPos();
-					}
 				});
-
+			shuffleGamePhoto();
+			playImageObj.onload = function() {
+				ctxPlay.drawImage(playImageObj, 0, 0, 300, 300);
+			};
+ 
+			//canvasContent.drawImage(playImageObj, 0, 0, 300, 300);
+			playImageObj.src = currentPhotoURL;
+			setupPos();
 		}
 
 		// function getImage (...) {
@@ -170,6 +174,8 @@ App.populator('page0', function (page, photoURL) {
 			});
 		 }
 
+		// selectionScreen = page.querySelector('#selectionCanvas');
+		// ctxSelection = selectionScreen.getContext('2d');
 
 		playPhotoScreen = page.querySelector("#receivedPhotoCanvas");
 		ctxPlay = playPhotoScreen.getContext("2d");
@@ -236,6 +242,16 @@ App.populator('page0', function (page, photoURL) {
 				kikPointsFound();
 			} else {
 				//draw in the square
+				var itemImageObj = new Image();
+
+				itemImageObj.onload = function() {
+					canvasContent.drawImage(itemImageObj, 
+						selectedValue.x * playZoneSize, 
+						selectedValue.y * playZoneSize, 
+						playZoneSize, playZoneSize);
+				};
+			
+				itemImageObj.src = '/img/dog-digging.jpg';
 			}
 
 	// 	var areaInPx = {

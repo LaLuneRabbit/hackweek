@@ -52,6 +52,10 @@
 	margin: 1% 0% 0% 1px;
 }
 
+#selectionCanvas {
+	position: absolute;
+	margin: 1% 0% 0% 1px;
+}
 
 .game-text {
 	padding: 4%;

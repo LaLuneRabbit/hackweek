@@ -26,11 +26,11 @@ photoStorage.push('/img/edits/googleearth9.jpg');
 function shuffleGamePhoto () {
 	var randomIndex = Math.floor((Math.random()*photoStorage.length)+0);
 
-	console.log("index is");
-	console.log(randomIndex);
+	// console.log("index is");
+	// console.log(randomIndex);
 
-	console.log("current photo URL is");
-	console.log(photoStorage[randomIndex]);
+	// console.log("current photo URL is");
+	// console.log(photoStorage[randomIndex]);
 
 	currentPhotoURL = photoStorage[randomIndex];
 
