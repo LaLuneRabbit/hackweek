@@ -1,4 +1,4 @@
-/* put stuff here */
+ put stuff here */
 
 .my-widget {
 	/*for both-platform*/
@@ -36,16 +36,18 @@
 	margin: 0% 20% 0% 20%;
 }
 
-.camera-photo-icon {
+
+#camera-photo-icon {
 	height: 30%;
 	width: 95%;
-	margin: 9% 0% 10% 2%;
+	margin: 3% 0% 2% 2%;
 }
 
-.camera-photo-icon2 {
-	height: 30%;
+#camera-photo-icon2 {
+	position: absolute;
+	height: 38%;
 	width: 95%;
-	margin: 9% 0% 10% 2%;
+	margin: 3% 0% 0% 2%;
 }
 
 #receivedPhotoCanvas {
@@ -92,4 +94,3 @@
 	top: 400px;
 	left: 200px;
 
-*/

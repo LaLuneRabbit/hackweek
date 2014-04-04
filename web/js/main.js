@@ -27,6 +27,9 @@ var userPic;
 
 		});
 
+		// page.addEventListener('DOMContentLoaded', function(){
+		// 	Code.photoSwipe('a', '#Gallery');
+		// }, false);
 
 	});
 
