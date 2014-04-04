@@ -156,6 +156,22 @@ App.populator('page0', function (page) {
 
 		}
 
+		function buyShovel () {
+		    var id   = kik.utils.random.uuid(),
+		        cost = 25,
+		        sku  = 'com.herokuapp.treasure-hunts.shovel';
+
+		    points.transfer(id, 25, sku, function (transaction) {
+				    if (transaction) {
+					    var old = page.querySelector('#shovel-count-value').innerHTML;
+						page.querySelector('#shovel-count-value').innerHTML = Number(old) + 1;
+
+				    } else {
+				      // NOPE NO POINTS FOR YOU
+				    }
+			});
+		 }
+
 
 		playPhotoScreen = page.querySelector("#receivedPhotoCanvas");
 		ctxPlay = playPhotoScreen.getContext("2d");
@@ -171,13 +187,14 @@ App.populator('page0', function (page) {
 
 
 
-		var addShovelButton = page.querySelector('#add-shovel');
-			addShovelButton.addEventListener('touchstart', function(event){
+		var $addShovelButton = page.querySelector('#add-shovel');
+			$addShovelButton.addEventListener('touchstart', function(event){
 				event.preventDefault();  
 				//ADD KIK POINTS TRANSACTIONS HERE!!!!!!!!!
-				var old = page.querySelector('#shovel-count-value').innerHTML;
-				page.querySelector('#shovel-count-value').innerHTML = Number(old) + 1;
+				buyShovel();
+				
 		});
+
 
 		function drawPlayPhoto (canvasContent) {
 			playImageObj = new Image();
