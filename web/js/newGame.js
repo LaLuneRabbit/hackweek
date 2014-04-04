@@ -1,4 +1,4 @@
-App.populator('page0', function (page) {
+App.populator('page0', function (page, photoURL) {
 		
 		points.debug = true;
 
@@ -132,10 +132,8 @@ App.populator('page0', function (page) {
 					okButton: "More Treasure Hunt"
 				}, function (success) {
 					if (success) {
-						App.back(function () {
-						  // back to home
-						  // page2 destructor has been called
-						});
+						shuffleGamePhoto();
+						setupPos();
 					}
 				});
 
@@ -176,8 +174,8 @@ App.populator('page0', function (page) {
 		playPhotoScreen = page.querySelector("#receivedPhotoCanvas");
 		ctxPlay = playPhotoScreen.getContext("2d");
 		//playPhotoScreen.style.position = 'absolute';
-		playPhotoScreen.style.top = 20 + 'px';
-		playPhotoScreen.style.left = 10 + 'px';
+		//playPhotoScreen.style.top = 20 + 'px';
+		//playPhotoScreen.style.left = 10 + 'px';
 		playZoneSize = playPhotoScreen.height / 7;
 
 		setupPos();
@@ -197,6 +195,9 @@ App.populator('page0', function (page) {
 
 
 		function drawPlayPhoto (canvasContent) {
+			console.log("photo url is");
+			console.log(currentPhotoURL);
+
 			playImageObj = new Image();
 
 			playImageObj.onload = function() {
@@ -204,7 +205,7 @@ App.populator('page0', function (page) {
 			};
 
 			//canvasContent.drawImage(playImageObj, 0, 0, 300, 300);
-			playImageObj.src = '/img/stickman.jpg'  //grab from storage later
+			playImageObj.src = currentPhotoURL; //grab from storage later
 			//playImageObj.src = gameData.gamePhotoURL;
 		}
 
@@ -284,6 +285,7 @@ App.populator('page0', function (page) {
 					okButton: "Bankrupt!"
 				}, function (success) {
 					if (success) {
+						shuffleGamePhoto();
 						App.back(function () {
 						  // back to home
 						  // page2 destructor has been called

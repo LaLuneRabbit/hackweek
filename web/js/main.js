@@ -15,11 +15,13 @@ var userPic;
 
 	App.populator('home', function (page, user) {
 
+
 		currentUser = user.username;
 
 		userSelected = page.querySelector('#new-game-button');
 
 		userSelected.addEventListener('touchstart', function(event) {
+			shuffleGamePhoto();
 			console.log("sending to user!");
 			App.load("page0");
 

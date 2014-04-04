@@ -48,6 +48,11 @@
 	margin: 9% 0% 10% 2%;
 }
 
+#receivedPhotoCanvas {
+	margin: 1% 0% 0% 1px;
+}
+
+
 .game-text {
 	padding: 4%;
 }
