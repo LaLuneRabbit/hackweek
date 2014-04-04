@@ -31,14 +31,14 @@
 	})
 
 	App.populator('page3-1', function (page, gameData) {
-		console.log("you have gotten to the right page");
-		console.log("all the data you are suppose to have on this page");
-		console.log(gameData.gameID);
-		console.log(gameData.senderFirstName);
-		console.log(gameData.senderProfilPic);
-		console.log(gameData.gamePhotoURL);
-		console.log(gameData.itemPic);
-		console.log(gameData.itemPosition);
+		// console.log("you have gotten to the right page");
+		// console.log("all the data you are suppose to have on this page");
+		// console.log(gameData.gameID);
+		// console.log(gameData.senderFirstName);
+		// console.log(gameData.senderProfilPic);
+		// console.log(gameData.gamePhotoURL);
+		// console.log(gameData.itemPic);
+		// console.log(gameData.itemPosition);
 		//console.log(personReceiving);
 		//console.log(gameDataArray);
 		//gameData = gameDataArray[personReceiving];
@@ -58,14 +58,14 @@
 			};
 
 			//canvasContent.drawImage(playImageObj, 0, 0, 300, 300);
-			//playImageObj.src = gameData.url;
-			playImageObj.src = gameData.gamePhotoURL;
+			playImageObj.src = gameData.url;
+			//playImageObj.src = gameData.gamePhotoURL;
 		}
 
 
 		function checkZone (canvasContent, touchedRow, touchedCol, touchedZoneSize) {
 			// body...
-			if (touchedRow == gameData.itemPosition.x && touchedCol == gameData.itemPosition.y) {
+			if (touchedRow == gameData.pos.x && touchedCol == gameData.pos.y) {
 				console.log("you won!");
 				var areaInPx = {
 					x: touchedRow * touchedZoneSize,
@@ -78,8 +78,17 @@
 						areaInPx.x, areaInPx.y, touchedZoneSize, touchedZoneSize);
 				};
 			
-				//itemImageObj.src = '/img/stickman.jpg';
-				itemImageObj.src = gameData.itemPic;
+				itemImageObj.src = gameData.url;
+				//itemImageObj.src = gameData.itemPic;
+				App.dialog({
+					title: "HEY",
+					text: "SUP",
+					okButton: "ok"
+				}, function (success) {
+					if (success) {
+						App.load('home');
+					}
+				});
 			} else {
 				console.log("you missed!");
 			}

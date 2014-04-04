@@ -19,6 +19,58 @@
 	height: 40px;
 }
 
+.app-content {
+	background: rgba(145, 99, 41, 0.45);
+}
+
+.treasure-hunt-photo {
+	width: 300px;
+	height: 300px;
+	margin: 7% 3% 0% 3%;
+}
+
+.app-section.intro-home {
+	position: relative;
+	top: 40px;
+	width: 200px;
+	margin: 0% 20% 0% 20%;
+}
+
+.camera-photo-icon {
+	height: 30%;
+	width: 95%;
+	margin: 9% 0% 10% 2%;
+}
+
+.camera-photo-icon2 {
+	height: 30%;
+	width: 95%;
+	margin: 9% 0% 10% 2%;
+}
+
+.game-text {
+	padding: 4%;
+}
+
+#shovel-count-text {
+	float: left;
+	margin: 0% 3% 0% 21%;
+}
+
+#shovel-count-value {
+	/*position: absolute;*/
+}
+
+
+#add-shovel {
+	/*position: absolute;*/
+	float: left;
+	margin: 0% 12% 2% 20%;
+}
+
+#quit-game {
+	position: absolute;
+}
 /*
 #photoAdd {
 	position: absolute;

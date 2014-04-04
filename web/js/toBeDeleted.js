@@ -1,4 +1,5 @@
 var gameStorage = new buckets.Dictionary;
+var gameDataArray = new Array();
 
 function sender (userName, firstName, profilePicURL) {
 	this.userName = userName;
@@ -6,10 +7,18 @@ function sender (userName, firstName, profilePicURL) {
 	this.profilePicURL = profilePicURL;
 }
 
-function currentUser (userName, firstName, profilePicURL) {
+function receiver (userName, firstName, profilePicURL) {
 	this.userName = userName;
 	this.firstName = firstName;
 	this.profilePicURL = profilePicURL;
+}
+
+function currentUser (userName, firstName, profilePicURL, cameraCount, glassCount) {
+	this.userName = userName;
+	this.firstName = firstName;
+	this.profilePicURL = profilePicURL;
+	this.cameraCount = cameraCount;
+	this.glassCount = glassCount;
 }
 
 function position (row, col) {
@@ -28,3 +37,4 @@ function gameData (senderData, currentUserData, boardData) {
 	this.currentUserData = currentUserData; //currentUserObj
 	this.boardData = boardData;	//boardObject
 }
+

@@ -131,10 +131,10 @@ App.populator('page2', function (page, receiver) {
 					    } else {
 					    	baseImageObj.src = photos[0];
 					    	console.log(baseImageObj.src);
-					        basemageObj.onload = function() {
+					        baseImageObj.onload = function() {
 								ctxPhoto.drawImage(baseImageObj, 0, 0, 300, 300);
 							};
-							photoExist = "true";
+							//photoExist = "true";
 					    }
 				});
 			
@@ -147,15 +147,12 @@ App.populator('page2', function (page, receiver) {
 		picConfirmButton.style.left = 190 + 'px';
 
 		picConfirmButton.addEventListener('touchstart', function(event) {
-			alert("I got to here!");
+			//alert("I got to here!");
 
 			console.log("I got to here!");
 			console.log(receiver);
-
-			if (zoneOld.positionX == "null" && photoExist == "true") {
-				//have an alert box somehow
-
-			} else {
+			console.log(receiver.username);
+			//console.log(baseImageObj.src);
 
 				var pos = {
 					x: zoneOld.positionX,
@@ -166,18 +163,14 @@ App.populator('page2', function (page, receiver) {
 				    title : 'hi' ,
 				    pic   : '/img/stickman.jpg' , // optional
 				    text  : 'this is the text body'  ,
+				    
 				    noForward : true ,
-				    /*data      : {
-				    	url: baseImageObj.src,
-				    	pos: pos,    	
-				    }  */      
-
+				    data      : {
+				    	url: '/img/stickman.jpg',
+				    	pos: pos  	
+				    }     
+					
 				});
-
-			}
-
-			
-
 		});
 
    		// body...
