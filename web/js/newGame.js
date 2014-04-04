@@ -164,7 +164,7 @@ App.populator('page0', function (page) {
 		    points.transfer(id, 25, sku, function (transaction) {
 				    if (transaction) {
 					    var old = page.querySelector('#shovel-count-value').innerHTML;
-						page.querySelector('#shovel-count-value').innerHTML = Number(old) + 1;
+						page.querySelector('#shovel-count-value').innerHTML = Number(old) + 5;
 
 				    } else {
 				      // NOPE NO POINTS FOR YOU
