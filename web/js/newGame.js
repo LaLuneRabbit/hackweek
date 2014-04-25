@@ -1,6 +1,5 @@
 App.populator('page0', function (page, photoURL) {
 		kik.browser.setOrientationLock('portrait');
-		//points.debug = true;
 
 		// var goalPosValue = {
 		// 	x : 1,
@@ -112,19 +111,7 @@ App.populator('page0', function (page, photoURL) {
 			setupPos(); 
 		}
 
-		function kikPointsFound (tappedPosition) {
-			//reward kik points if found
-			App.dialog({
-					title: "Wow!",
-					text: "It's your LUCKY DAY...too bad there is no points to give.",
-					okButton: "Let's keep going"
-				});
-
-			resetKikPointsPos();
-			var old = page.querySelector('#shovel-count-value').innerHTML;
-			page.querySelector('#shovel-count-value').innerHTML = Number(old) + 10;
-
-		}
+		//I just broke my card
 
 		function goalFound () {
 			// if found 
@@ -163,21 +150,7 @@ App.populator('page0', function (page, photoURL) {
 
 		}
 
-		function buyShovel () {
-		    var id   = kik.utils.random.uuid(),
-		        cost = 25,
-		        sku  = 'com.herokuapp.treasure-hunts.shovel';
-
-		    points.transfer(id, 25, sku, function (transaction) {
-				    if (transaction) {
-					    var old = page.querySelector('#shovel-count-value').innerHTML;
-						page.querySelector('#shovel-count-value').innerHTML = Number(old) + 5;
-
-				    } else {
-				      // NOPE NO POINTS FOR YOU
-				    }
-			});
-		 }
+		//noooooo! my buyShovel
 
 		// selectionScreen = page.querySelector('#selectionCanvas');
 		// ctxSelection = selectionScreen.getContext('2d');
@@ -199,7 +172,6 @@ App.populator('page0', function (page, photoURL) {
 		var $addShovelButton = page.querySelector('#add-shovel');
 			$addShovelButton.addEventListener('touchstart', function(event){
 				event.preventDefault();  
-				//ADD KIK POINTS TRANSACTIONS HERE!!!!!!!!!
 				buyShovel();
 				
 		});
@@ -242,8 +214,8 @@ App.populator('page0', function (page, photoURL) {
 				goalFound();
 			} 
 			else if (selectedValue.x == kikPointsPosValue.x && selectedValue.y == kikPointsPosValue.y){
-				//found Kik points
-				console.log("got kik points");
+				//found Kik 
+				console.log("got kik");
 				kikPointsFound();
 			} else {
 				//draw in the square
